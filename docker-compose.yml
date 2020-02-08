@@ -1,0 +1,23 @@
+version: '3'
+
+networks:
+  default:
+    external:
+      name: micservice-network
+
+services:
+  user-service:
+    image: mic-user-service:latest
+    ports:
+      - 9090:9090
+    volumes:
+      - /usr/local/docker/micservice/user-service/log:/go/src/user-service/log
+
+  user-edge-service:
+    image: mic-user-edge-service:latest
+    ports:
+      - 9091:9091
+    links:
+      - user-service
+    volumes:
+      - /usr/local/docker/micservice/user-edge-service/log:/go/src/user-edge-service/log
