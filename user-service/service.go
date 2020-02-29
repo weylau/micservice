@@ -61,7 +61,7 @@ func (this *UserService)  RegiserUser(ctx context.Context, userInfo *user.UserIn
 
 func main() {
 
-	transport,err := thrift.NewTServerSocket(":9090")
+	transport,err := thrift.NewTServerSocket(":9001")
 	if err != nil {
 		panic(err)
 	}

@@ -42,6 +42,9 @@ func (this *Router) setAdmin() {
 	login_admin_ctrl := admin.Login{}
 	user_admin_ctrl := admin.User{}
 	this.engine.POST("/adapi/login", login_admin_ctrl.Login)
+	this.engine.GET("/adapi/check_healthy", func(c *gin.Context) {
+		c.String(http.StatusOK, "Hello world")
+	})
 	authorized := this.engine.Group("/adapi")
 	authorized.Use(middleware.CheckAuth())
 	{

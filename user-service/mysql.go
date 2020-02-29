@@ -12,7 +12,7 @@ type Mysql struct {
 
 func MysqlDefault() (db *Mysql) {
 	mysql := &Mysql{}
-	conn, err := gorm.Open("mysql", "root:123456@tcp(172.16.57.110:3307)/db_user")
+	conn, err := gorm.Open("mysql", "root:123456@tcp(172.16.57.110:3306)/db_user")
 	if err != nil {
 		panic(err.Error() + "mysql")
 	}

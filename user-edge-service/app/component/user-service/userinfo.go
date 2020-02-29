@@ -10,7 +10,7 @@ import (
 func GetUserByName(username string) (*user.UserInfo, error) {
 	var transport thrift.TTransport
 	var err error
-	transport, err = thrift.NewTSocket("172.16.57.110:9090")
+	transport, err = thrift.NewTSocket("user-service:80")
 	if err != nil {
 		return nil,fmt.Errorf("NewTSocket failed. err: [%v]\n", err)
 	}
